@@ -1,0 +1,3 @@
+class BeneficiaryModel {
+  const BeneficiaryModel();
+}

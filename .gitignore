@@ -33,6 +33,11 @@ migrate_working_dir/
 /build/
 /coverage/
 
+# Code generation (build_runner: riverpod_generator, freezed, injectable, json_serializable)
+**/*.g.dart
+**/*.freezed.dart
+**/injector.config.dart
+
 # Symbolication related
 app.*.symbols
 

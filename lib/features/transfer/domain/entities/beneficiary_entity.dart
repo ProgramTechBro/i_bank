@@ -1,0 +1,3 @@
+class BeneficiaryEntity {
+  const BeneficiaryEntity();
+}

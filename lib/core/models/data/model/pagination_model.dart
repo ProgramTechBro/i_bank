@@ -1,0 +1,3 @@
+class PaginationModel {
+  const PaginationModel();
+}

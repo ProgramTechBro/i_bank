@@ -1,0 +1,3 @@
+class TransferEntity {
+  const TransferEntity();
+}

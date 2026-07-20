@@ -1,0 +1,3 @@
+class LoggerService {
+  const LoggerService();
+}
