@@ -44,11 +44,7 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
           identifier: _identifierController.text,
           password: _passwordController.text,
         );
-    if (success && mounted) {
-      ScaffoldMessenger.of(
-        context,
-      ).showSnackBar(const SnackBar(content: Text('Signed in successfully')));
-    }
+    if (success && mounted) context.go(AppRoutes.home);
   }
 
   @override
