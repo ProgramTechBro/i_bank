@@ -5,4 +5,5 @@ class AppConstants {
   static const int connectTimeoutSeconds = 30;
   static const int receiveTimeoutSeconds = 30;
   static const int defaultPageSize = 20;
+  static const Duration splashDuration = Duration(seconds: 3);
 }

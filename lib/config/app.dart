@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../routes/app_pages.dart';
 import 'app_constants.dart';
 import 'theme/app_theme.dart';
 
@@ -7,11 +8,11 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       title: AppConstants.appName,
       debugShowCheckedModeBanner: false,
       theme: AppTheme.light,
-      home: const Scaffold(body: Center(child: Text(AppConstants.appName))),
+      routerConfig: AppPages.router,
     );
   }
 }
