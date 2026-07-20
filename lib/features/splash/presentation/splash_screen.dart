@@ -5,7 +5,6 @@ import 'package:go_router/go_router.dart';
 import '../../../config/app_assets.dart';
 import '../../../config/app_colors.dart';
 import '../../../config/app_constants.dart';
-import '../../../routes/app_routes.dart';
 import 'providers/splash_provider.dart';
 
 class SplashScreen extends ConsumerWidget {
@@ -14,7 +13,7 @@ class SplashScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     ref.listen(splashTimerProvider, (previous, next) {
-      if (next.hasValue) context.go(AppRoutes.signIn);
+      if (next.hasValue) context.go(next.value!);
     });
     return Scaffold(
       backgroundColor: AppColors.primary,

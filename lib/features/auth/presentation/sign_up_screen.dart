@@ -7,6 +7,7 @@ import '../../../config/app_colors.dart';
 import '../../../core/enums/request_status.dart';
 import '../../../core/shared_widgets/app_button.dart';
 import '../../../core/shared_widgets/app_text_field.dart';
+import '../../../routes/app_routes.dart';
 import 'local_widgets/terms_and_conditions_checkbox.dart';
 import 'providers/sign_up_provider.dart';
 
@@ -53,11 +54,7 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
           phone: _phoneController.text,
           password: _passwordController.text,
         );
-    if (success && mounted) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Account created successfully')),
-      );
-    }
+    if (success && mounted) context.go(AppRoutes.home);
   }
 
   @override
