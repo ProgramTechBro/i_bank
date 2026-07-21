@@ -4,7 +4,9 @@ import 'package:go_router/go_router.dart';
 import '../../../config/app_colors.dart';
 import '../../../core/shared_widgets/app_error_view.dart';
 import '../../../core/shared_widgets/app_loader.dart';
+import '../../../routes/app_routes.dart';
 import '../domain/entities/transaction_type.dart';
+import '../domain/entities/transfer_entity.dart';
 import 'local_widgets/account_selector_field.dart';
 import 'local_widgets/account_picker_dialog.dart';
 import 'local_widgets/beneficiary_card.dart';
@@ -49,16 +51,31 @@ class _TransferScreenState extends ConsumerState<TransferScreen> {
     ref.read(transferAmountTextProvider.notifier).update(value);
   }
 
-  Future<void> _onSubmit() async {
-    final success = await ref
-        .read(transferFormNotifierProvider.notifier)
-        .submit(
-          name: _nameController.text,
-          cardNumber: _cardNumberController.text,
-          amount: _amountController.text,
-          content: _contentController.text,
-        );
-    if (success && mounted) context.pop();
+  void _onSubmit() {
+    final formState = ref.read(transferFormNotifierProvider);
+    final accounts = ref.read(accountsProvider).valueOrNull;
+    final selectedAccount = formState.selectedAccountIndex != null
+        ? (accounts?[formState.selectedAccountIndex!])
+        : null;
+
+    final transfer = TransferEntity(
+      name: _nameController.text,
+      cardNumber: _cardNumberController.text,
+      amount: double.tryParse(_amountController.text) ?? 0,
+      content: _contentController.text,
+      transactionType: formState.transactionType,
+    );
+
+    context.push(
+      AppRoutes.transferConfirm,
+      extra: {
+        'transfer': transfer,
+        'fromMasked': selectedAccount == null
+            ? ''
+            : '${selectedAccount.cardBrand} ${selectedAccount.maskedNumber}',
+        'toName': _nameController.text,
+      },
+    );
   }
 
   @override
@@ -188,7 +205,6 @@ class _TransferScreenState extends ConsumerState<TransferScreen> {
               onToggleSaveToDirectory: (_) => ref
                   .read(transferFormNotifierProvider.notifier)
                   .toggleSaveToDirectory(),
-              status: formState.status,
               onSubmit: _onSubmit,
             ),
           ],

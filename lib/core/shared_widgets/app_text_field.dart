@@ -9,6 +9,7 @@ class AppTextField extends StatelessWidget {
     this.hintText,
     this.obscureText = false,
     this.showObscureToggle = false,
+    this.readOnly = false,
     this.keyboardType,
     this.onChanged,
     this.onToggleObscure,
@@ -19,6 +20,7 @@ class AppTextField extends StatelessWidget {
   final String? hintText;
   final bool obscureText;
   final bool showObscureToggle;
+  final bool readOnly;
   final TextInputType? keyboardType;
   final ValueChanged<String>? onChanged;
   final VoidCallback? onToggleObscure;
@@ -42,6 +44,7 @@ class AppTextField extends StatelessWidget {
           child: TextField(
             controller: controller,
             obscureText: obscureText,
+            readOnly: readOnly,
             keyboardType: keyboardType,
             onChanged: onChanged,
             style: textTheme.labelLarge?.copyWith(color: AppColors.neutral900),

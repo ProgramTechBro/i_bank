@@ -17,6 +17,8 @@ class AppImages {
   static const String searchExchangeRateIllustration =
       '${_base}exchange_rate.svg';
   static const String searchExchangeIllustration = '${_base}exchange.svg';
+  static const String transferSuccessIllustration =
+      '${_base}transfer_success.svg';
 }
 
 class AppIcons {

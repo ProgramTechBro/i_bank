@@ -24,24 +24,25 @@ class BeneficiaryCard extends StatelessWidget {
         height: 120,
         padding: const EdgeInsets.symmetric(vertical: 16),
         decoration: BoxDecoration(
-          color: AppColors.white,
+          color: isSelected ? AppColors.primary : AppColors.white,
           borderRadius: BorderRadius.circular(15),
           boxShadow: AppColors.cardShadowNeutral,
-          border: isSelected
-              ? Border.all(color: AppColors.primary, width: 1.5)
-              : null,
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             CircleAvatar(
               radius: 30,
-              backgroundImage: NetworkImage(beneficiary.avatarUrl),
+              backgroundColor: AppColors.white,
+              child: CircleAvatar(
+                radius: 28,
+                backgroundImage: NetworkImage(beneficiary.avatarUrl),
+              ),
             ),
             Text(
               beneficiary.name,
               style: textTheme.bodyMedium?.copyWith(
-                color: isSelected ? AppColors.primary : AppColors.neutral900,
+                color: isSelected ? AppColors.white : AppColors.neutral900,
               ),
             ),
           ],

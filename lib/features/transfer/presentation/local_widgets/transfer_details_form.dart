@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import '../../../../config/app_colors.dart';
-import '../../../../core/enums/request_status.dart';
 import '../../../../core/shared_widgets/app_button.dart';
 import '../../../../core/shared_widgets/app_text_field.dart';
 
@@ -15,7 +14,6 @@ class TransferDetailsForm extends StatelessWidget {
     required this.onAmountChanged,
     required this.saveToDirectory,
     required this.onToggleSaveToDirectory,
-    required this.status,
     required this.onSubmit,
   });
 
@@ -27,7 +25,6 @@ class TransferDetailsForm extends StatelessWidget {
   final ValueChanged<String> onAmountChanged;
   final bool saveToDirectory;
   final ValueChanged<bool> onToggleSaveToDirectory;
-  final RequestStatus status;
   final VoidCallback onSubmit;
 
   @override
@@ -96,11 +93,7 @@ class TransferDetailsForm extends StatelessWidget {
             ],
           ),
           const SizedBox(height: 24),
-          AppButton(
-            label: 'Confirm',
-            isLoading: status == RequestStatus.loading,
-            onPressed: onSubmit,
-          ),
+          AppButton(label: 'Confirm', onPressed: onSubmit),
         ],
       ),
     );
