@@ -10,7 +10,6 @@ abstract class HomeLocalDatasource {
 class HomeLocalDatasourceImpl implements HomeLocalDatasource {
   @override
   Future<HomeDashboardModel> getDashboard() async {
-    await Future.delayed(const Duration(milliseconds: 800));
     return const HomeDashboardModel(
       userName: 'Push Puttichai',
       avatarUrl: AppNetworkImages.currentUserAvatar,

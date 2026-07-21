@@ -63,98 +63,105 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
           style: textTheme.titleMedium?.copyWith(color: AppColors.white),
         ),
       ),
-      body: Container(
-        width: double.infinity,
-        decoration: const BoxDecoration(
-          color: AppColors.white,
-          borderRadius: BorderRadius.vertical(top: Radius.circular(30)),
-        ),
-        child: SingleChildScrollView(
-          padding: const EdgeInsets.fromLTRB(24, 24, 24, 32),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              Text(
-                'Welcome Back',
-                style: textTheme.titleLarge?.copyWith(color: AppColors.primary),
-              ),
-              const SizedBox(height: 4),
-              Text(
-                'Hello there, sign in to continue',
-                style: textTheme.bodySmall?.copyWith(
-                  color: AppColors.neutral900,
-                ),
-              ),
-              const SizedBox(height: 24),
-              Center(
-                child: SvgPicture.asset(AppImages.authSignInIllustration, width: 213),
-              ),
-              const SizedBox(height: 24),
-              AppTextField(
-                controller: _identifierController,
-                hintText: 'Text input',
-                onChanged: _onFieldChanged,
-              ),
-              const SizedBox(height: 16),
-              AppTextField(
-                controller: _passwordController,
-                hintText: 'Password',
-                obscureText: !signInState.obscurePassword,
-                showObscureToggle: true,
-                onToggleObscure: () => ref
-                    .read(signInNotifierProvider.notifier)
-                    .toggleObscurePassword(),
-                onChanged: _onFieldChanged,
-              ),
-              const SizedBox(height: 8),
-              Align(
-                alignment: Alignment.centerRight,
-                child: GestureDetector(
-                  onTap: () => context.push(AppRoutes.forgotPassword),
-                  child: Text(
-                    'Forgot your password ?',
-                    style: textTheme.bodySmall?.copyWith(
-                      color: AppColors.neutral300,
-                    ),
+      body: SizedBox.expand(
+        child: Container(
+          width: double.infinity,
+          decoration: const BoxDecoration(
+            color: AppColors.white,
+            borderRadius: BorderRadius.vertical(top: Radius.circular(30)),
+          ),
+          child: SingleChildScrollView(
+            padding: const EdgeInsets.fromLTRB(24, 24, 24, 32),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Text(
+                  'Welcome Back',
+                  style: textTheme.titleLarge?.copyWith(
+                    color: AppColors.primary,
                   ),
                 ),
-              ),
-              const SizedBox(height: 24),
-              AppButton(
-                label: 'Sign in',
-                isLoading: signInState.status == RequestStatus.loading,
-                onPressed: signInState.isFormValid ? _onSubmit : null,
-              ),
-              const SizedBox(height: 24),
-              const Center(
-                child: Icon(
-                  Icons.fingerprint,
-                  size: 48,
-                  color: AppColors.primary,
-                ),
-              ),
-              const SizedBox(height: 16),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    "Don't have an account? ",
-                    style: textTheme.bodySmall?.copyWith(
-                      color: AppColors.neutral900,
-                    ),
+                const SizedBox(height: 4),
+                Text(
+                  'Hello there, sign in to continue',
+                  style: textTheme.bodySmall?.copyWith(
+                    color: AppColors.neutral900,
                   ),
-                  GestureDetector(
-                    onTap: () => context.push(AppRoutes.signUp),
+                ),
+                const SizedBox(height: 24),
+                Center(
+                  child: SvgPicture.asset(
+                    AppImages.authSignInIllustration,
+                    width: 213,
+                  ),
+                ),
+                const SizedBox(height: 24),
+                AppTextField(
+                  controller: _identifierController,
+                  hintText: 'Text input',
+                  onChanged: _onFieldChanged,
+                ),
+                const SizedBox(height: 16),
+                AppTextField(
+                  controller: _passwordController,
+                  hintText: 'Password',
+                  obscureText: !signInState.obscurePassword,
+                  showObscureToggle: true,
+                  onToggleObscure: () => ref
+                      .read(signInNotifierProvider.notifier)
+                      .toggleObscurePassword(),
+                  onChanged: _onFieldChanged,
+                ),
+                const SizedBox(height: 8),
+                Align(
+                  alignment: Alignment.centerRight,
+                  child: GestureDetector(
+                    onTap: () => context.push(AppRoutes.forgotPassword),
                     child: Text(
-                      'Sign Up',
-                      style: textTheme.labelSmall?.copyWith(
-                        color: AppColors.primary,
+                      'Forgot your password ?',
+                      style: textTheme.bodySmall?.copyWith(
+                        color: AppColors.neutral300,
                       ),
                     ),
                   ),
-                ],
-              ),
-            ],
+                ),
+                const SizedBox(height: 24),
+                AppButton(
+                  label: 'Sign in',
+                  isLoading: signInState.status == RequestStatus.loading,
+                  onPressed: _onSubmit,
+                ),
+                const SizedBox(height: 24),
+                const Center(
+                  child: Icon(
+                    Icons.fingerprint,
+                    size: 48,
+                    color: AppColors.primary,
+                  ),
+                ),
+                const SizedBox(height: 16),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      "Don't have an account? ",
+                      style: textTheme.bodySmall?.copyWith(
+                        color: AppColors.neutral900,
+                      ),
+                    ),
+                    GestureDetector(
+                      onTap: () => context.push(AppRoutes.signUp),
+                      child: Text(
+                        'Sign Up',
+                        style: textTheme.labelSmall?.copyWith(
+                          color: AppColors.primary,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ),

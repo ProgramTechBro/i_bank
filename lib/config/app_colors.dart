@@ -7,6 +7,8 @@ class AppColors {
   static const Color primaryDisabled = Color(0xFFA8A3D7);
   static const Color primaryTint = Color(0xFFF2F1F9);
   static const Color cardIndigoDark = Color(0xFF281C9D);
+  static const Color cardIndigoMid = Color(0xFF1573FF);
+  static const Color cardSkyBlue = Color(0xFF4EB4FF);
 
   static const Color neutral900 = Color(0xFF343434);
   static const Color neutral700 = Color(0xFF898989);

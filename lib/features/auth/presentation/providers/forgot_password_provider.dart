@@ -9,7 +9,8 @@ part 'forgot_password_provider.g.dart';
 
 @riverpod
 class ForgotPasswordNotifier extends _$ForgotPasswordNotifier {
-  late final SendResetCodeUseCase _sendResetCode = getIt<SendResetCodeUseCase>();
+  late final SendResetCodeUseCase _sendResetCode =
+      getIt<SendResetCodeUseCase>();
   late final VerifyResetCodeUseCase _verifyResetCode =
       getIt<VerifyResetCodeUseCase>();
 

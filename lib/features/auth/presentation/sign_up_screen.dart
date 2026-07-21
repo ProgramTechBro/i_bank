@@ -73,92 +73,96 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
           style: textTheme.titleMedium?.copyWith(color: AppColors.white),
         ),
       ),
-      body: Container(
-        width: double.infinity,
-        decoration: const BoxDecoration(
-          color: AppColors.white,
-          borderRadius: BorderRadius.vertical(top: Radius.circular(30)),
-        ),
-        child: SingleChildScrollView(
-          padding: const EdgeInsets.fromLTRB(24, 24, 24, 32),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              Text(
-                'Welcome to us,',
-                style: textTheme.titleLarge?.copyWith(color: AppColors.primary),
-              ),
-              const SizedBox(height: 4),
-              Text(
-                'Hello there, create New account',
-                style: textTheme.bodySmall?.copyWith(
-                  color: AppColors.neutral900,
-                ),
-              ),
-              const SizedBox(height: 24),
-              Center(
-                child: SvgPicture.asset(
-                  AppImages.authSignUpIllustration,
-                  width: 213,
-                ),
-              ),
-              const SizedBox(height: 24),
-              AppTextField(
-                controller: _nameController,
-                hintText: 'Name',
-                onChanged: _onFieldChanged,
-              ),
-              const SizedBox(height: 16),
-              AppTextField(
-                controller: _phoneController,
-                hintText: 'Text input',
-                keyboardType: TextInputType.phone,
-                onChanged: _onFieldChanged,
-              ),
-              const SizedBox(height: 16),
-              AppTextField(
-                controller: _passwordController,
-                hintText: 'Password',
-                obscureText: !signUpState.obscurePassword,
-                showObscureToggle: true,
-                onToggleObscure: () => ref
-                    .read(signUpNotifierProvider.notifier)
-                    .toggleObscurePassword(),
-                onChanged: _onFieldChanged,
-              ),
-              const SizedBox(height: 16),
-              TermsAndConditionsCheckbox(
-                value: signUpState.agreedToTerms,
-                onChanged: _onToggleTerms,
-              ),
-              const SizedBox(height: 24),
-              AppButton(
-                label: 'Sign up',
-                isLoading: signUpState.status == RequestStatus.loading,
-                onPressed: signUpState.isFormValid ? _onSubmit : null,
-              ),
-              const SizedBox(height: 16),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    'Have an account? ',
-                    style: textTheme.bodySmall?.copyWith(
-                      color: AppColors.neutral900,
-                    ),
+      body: SizedBox.expand(
+        child: Container(
+          width: double.infinity,
+          decoration: const BoxDecoration(
+            color: AppColors.white,
+            borderRadius: BorderRadius.vertical(top: Radius.circular(30)),
+          ),
+          child: SingleChildScrollView(
+            padding: const EdgeInsets.fromLTRB(24, 24, 24, 32),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Text(
+                  'Welcome to us,',
+                  style: textTheme.titleLarge?.copyWith(
+                    color: AppColors.primary,
                   ),
-                  GestureDetector(
-                    onTap: () => context.pop(),
-                    child: Text(
-                      'Sign In',
-                      style: textTheme.labelSmall?.copyWith(
-                        color: AppColors.primary,
+                ),
+                const SizedBox(height: 4),
+                Text(
+                  'Hello there, create New account',
+                  style: textTheme.bodySmall?.copyWith(
+                    color: AppColors.neutral900,
+                  ),
+                ),
+                const SizedBox(height: 24),
+                Center(
+                  child: SvgPicture.asset(
+                    AppImages.authSignUpIllustration,
+                    width: 213,
+                  ),
+                ),
+                const SizedBox(height: 24),
+                AppTextField(
+                  controller: _nameController,
+                  hintText: 'Name',
+                  onChanged: _onFieldChanged,
+                ),
+                const SizedBox(height: 16),
+                AppTextField(
+                  controller: _phoneController,
+                  hintText: 'Text input',
+                  keyboardType: TextInputType.phone,
+                  onChanged: _onFieldChanged,
+                ),
+                const SizedBox(height: 16),
+                AppTextField(
+                  controller: _passwordController,
+                  hintText: 'Password',
+                  obscureText: !signUpState.obscurePassword,
+                  showObscureToggle: true,
+                  onToggleObscure: () => ref
+                      .read(signUpNotifierProvider.notifier)
+                      .toggleObscurePassword(),
+                  onChanged: _onFieldChanged,
+                ),
+                const SizedBox(height: 16),
+                TermsAndConditionsCheckbox(
+                  value: signUpState.agreedToTerms,
+                  onChanged: _onToggleTerms,
+                ),
+                const SizedBox(height: 24),
+                AppButton(
+                  label: 'Sign up',
+                  isLoading: signUpState.status == RequestStatus.loading,
+                  onPressed: _onSubmit,
+                ),
+                const SizedBox(height: 16),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      'Have an account? ',
+                      style: textTheme.bodySmall?.copyWith(
+                        color: AppColors.neutral900,
                       ),
                     ),
-                  ),
-                ],
-              ),
-            ],
+                    GestureDetector(
+                      onTap: () => context.pop(),
+                      child: Text(
+                        'Sign In',
+                        style: textTheme.labelSmall?.copyWith(
+                          color: AppColors.primary,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ),

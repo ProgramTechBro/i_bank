@@ -49,7 +49,7 @@ class _ChangePasswordScreenState extends ConsumerState<ChangePasswordScreen> {
 
     return Scaffold(
       appBar: AppBar(title: const Text('Change password')),
-      body: Padding(
+      body: SingleChildScrollView(
         padding: const EdgeInsets.fromLTRB(24, 24, 24, 24),
         child: Container(
           padding: const EdgeInsets.all(16),
@@ -87,7 +87,7 @@ class _ChangePasswordScreenState extends ConsumerState<ChangePasswordScreen> {
               AppButton(
                 label: 'Change password',
                 isLoading: state.status == RequestStatus.loading,
-                onPressed: state.isFormValid ? _onSubmit : null,
+                onPressed: _onSubmit,
               ),
             ],
           ),

@@ -52,7 +52,8 @@ class HomeQuickActionsGrid extends StatelessWidget {
         crossAxisSpacing: 16,
         childAspectRatio: 1,
       ),
-      itemBuilder: (context, index) => _QuickActionTile(action: _actions[index]),
+      itemBuilder: (context, index) =>
+          _QuickActionTile(action: _actions[index]),
     );
   }
 }

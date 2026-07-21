@@ -53,7 +53,7 @@ class _ForgotPasswordScreenState extends ConsumerState<ForgotPasswordScreen> {
 
     return Scaffold(
       appBar: AppBar(title: const Text('Forgot password')),
-      body: Padding(
+      body: SingleChildScrollView(
         padding: const EdgeInsets.fromLTRB(24, 24, 24, 24),
         child: Container(
           padding: const EdgeInsets.all(16),
@@ -68,7 +68,6 @@ class _ForgotPasswordScreenState extends ConsumerState<ForgotPasswordScreen> {
                   onPhoneChanged: (value) => ref
                       .read(forgotPasswordNotifierProvider.notifier)
                       .validatePhone(value),
-                  isSendEnabled: state.isPhoneValid,
                   isSending: isLoading,
                   onSend: _onSend,
                 )
@@ -78,7 +77,6 @@ class _ForgotPasswordScreenState extends ConsumerState<ForgotPasswordScreen> {
                   onCodeChanged: (value) => ref
                       .read(forgotPasswordNotifierProvider.notifier)
                       .validateCode(value),
-                  isChangePasswordEnabled: state.isCodeValid,
                   isSubmitting: isLoading,
                   onChangePassword: _onChangePassword,
                   onResend: () => ref

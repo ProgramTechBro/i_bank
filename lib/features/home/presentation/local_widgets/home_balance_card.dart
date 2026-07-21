@@ -29,27 +29,27 @@ class HomeBalanceCard extends StatelessWidget {
       child: Stack(
         children: [
           Positioned(
-            top: 44,
+            top: 188,
             left: 33,
             right: 33,
             child: Container(
-              height: 32,
+              height: 36,
               decoration: BoxDecoration(
                 color: AppColors.primary,
-                borderRadius: BorderRadius.circular(10),
+                borderRadius: BorderRadius.circular(15),
                 boxShadow: AppColors.cardShadowPrimary,
               ),
             ),
           ),
           Positioned(
-            top: 35,
+            top: 190,
             left: 20,
             right: 20,
             child: Container(
               height: 24,
               decoration: BoxDecoration(
                 color: AppColors.semanticError,
-                borderRadius: BorderRadius.circular(10),
+                borderRadius: BorderRadius.circular(15),
                 boxShadow: AppColors.cardShadowPrimary,
               ),
             ),
@@ -63,25 +63,23 @@ class HomeBalanceCard extends StatelessWidget {
               child: SizedBox(
                 height: 204,
                 child: Stack(
+                  fit: StackFit.expand,
                   children: [
-                    const DecoratedBox(
-                      decoration: BoxDecoration(color: AppColors.cardIndigoDark),
-                      child: SizedBox.expand(),
-                    ),
+                    const ColoredBox(color: AppColors.cardIndigoMid),
                     Positioned(
-                      right: -50,
-                      top: -50,
+                      right: -86,
+                      top: -41,
                       child: _CircleBlob(
                         size: 190,
-                        color: AppColors.primary.withValues(alpha: 0.55),
+                        color: AppColors.cardSkyBlue,
                       ),
                     ),
                     Positioned(
-                      right: -75,
-                      top: 30,
+                      left: -145,
+                      top: -73,
                       child: _CircleBlob(
-                        size: 150,
-                        color: AppColors.white.withValues(alpha: 0.12),
+                        size: 381,
+                        color: AppColors.cardIndigoDark,
                       ),
                     ),
                     Padding(
@@ -107,10 +105,11 @@ class HomeBalanceCard extends StatelessWidget {
                           Text(
                             maskedCardNumber,
                             style: textTheme.bodyLarge?.copyWith(
+                              fontSize: 18,
                               color: AppColors.white,
                             ),
                           ),
-                          const SizedBox(height: 8),
+                          const Spacer(),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
@@ -124,6 +123,7 @@ class HomeBalanceCard extends StatelessWidget {
                                 'VISA',
                                 style: textTheme.titleSmall?.copyWith(
                                   color: AppColors.white,
+                                  fontSize: 16,
                                   fontStyle: FontStyle.italic,
                                 ),
                               ),

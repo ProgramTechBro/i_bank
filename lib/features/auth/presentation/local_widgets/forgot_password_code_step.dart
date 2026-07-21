@@ -9,7 +9,6 @@ class ForgotPasswordCodeStep extends StatelessWidget {
     required this.phone,
     required this.codeController,
     required this.onCodeChanged,
-    required this.isChangePasswordEnabled,
     required this.isSubmitting,
     required this.onChangePassword,
     required this.onResend,
@@ -19,7 +18,6 @@ class ForgotPasswordCodeStep extends StatelessWidget {
   final String phone;
   final TextEditingController codeController;
   final ValueChanged<String> onCodeChanged;
-  final bool isChangePasswordEnabled;
   final bool isSubmitting;
   final VoidCallback onChangePassword;
   final VoidCallback onResend;
@@ -93,7 +91,7 @@ class ForgotPasswordCodeStep extends StatelessWidget {
         AppButton(
           label: 'Change password',
           isLoading: isSubmitting,
-          onPressed: isChangePasswordEnabled ? onChangePassword : null,
+          onPressed: onChangePassword,
         ),
         const SizedBox(height: 24),
         Center(

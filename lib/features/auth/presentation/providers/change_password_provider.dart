@@ -24,7 +24,10 @@ class ChangePasswordNotifier extends _$ChangePasswordNotifier {
     );
   }
 
-  void validate({required String newPassword, required String confirmPassword}) {
+  void validate({
+    required String newPassword,
+    required String confirmPassword,
+  }) {
     state = state.copyWith(
       isFormValid:
           newPassword.isNotEmpty &&
