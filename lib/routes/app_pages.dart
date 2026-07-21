@@ -8,9 +8,14 @@ import '../features/branch_locator/presentation/branch_screen.dart';
 import '../features/branch_locator/presentation/exchange_rate_screen.dart';
 import '../features/branch_locator/presentation/interest_rate_screen.dart';
 import '../features/branch_locator/presentation/search_screen.dart';
+import '../features/exchange/presentation/exchange_screen.dart';
 import '../features/home/presentation/home_screen.dart';
 import '../features/settings/presentation/language_screen.dart';
 import '../features/splash/presentation/splash_screen.dart';
+import '../features/transfer/domain/entities/transfer_entity.dart';
+import '../features/transfer/presentation/transfer_confirm_screen.dart';
+import '../features/transfer/presentation/transfer_screen.dart';
+import '../features/transfer/presentation/transfer_success_screen.dart';
 import 'app_routes.dart';
 
 class AppPages {
@@ -46,6 +51,35 @@ class AppPages {
       GoRoute(
         path: AppRoutes.language,
         builder: (context, state) => const LanguageScreen(),
+      ),
+      GoRoute(
+        path: AppRoutes.exchange,
+        builder: (context, state) => const ExchangeScreen(),
+      ),
+      GoRoute(
+        path: AppRoutes.transfer,
+        builder: (context, state) => const TransferScreen(),
+      ),
+      GoRoute(
+        path: AppRoutes.transferConfirm,
+        builder: (context, state) {
+          final extra = state.extra! as Map<String, dynamic>;
+          return TransferConfirmScreen(
+            transfer: extra['transfer'] as TransferEntity,
+            fromMasked: extra['fromMasked'] as String,
+            toName: extra['toName'] as String,
+          );
+        },
+      ),
+      GoRoute(
+        path: AppRoutes.transferSuccess,
+        builder: (context, state) {
+          final extra = state.extra! as Map<String, dynamic>;
+          return TransferSuccessScreen(
+            amount: extra['amount'] as double,
+            toName: extra['toName'] as String,
+          );
+        },
       ),
       GoRoute(
         path: AppRoutes.signIn,

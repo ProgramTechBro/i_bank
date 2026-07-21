@@ -11,6 +11,14 @@ class AppImages {
   static const String changePasswordSuccessIllustration =
       '${_base}change_password_success_illustration.svg';
   static const String branchMap = '${_base}map.png';
+  static const String searchBranchIllustration = '${_base}branches.svg';
+  static const String searchInterestRateIllustration =
+      '${_base}interest_rate.svg';
+  static const String searchExchangeRateIllustration =
+      '${_base}exchange_rate.svg';
+  static const String searchExchangeIllustration = '${_base}exchange.svg';
+  static const String transferSuccessIllustration =
+      '${_base}transfer_success.svg';
 }
 
 class AppIcons {
@@ -37,18 +45,14 @@ class AppIcons {
   static const String categoryTransactionReport =
       '${_base}transaction_report.svg';
   static const String categoryBeneficiary = '${_base}beneficiary.svg';
-  static const String searchBranchIllustration =
-      '${_base}branches.svg';
-  static const String searchInterestRateIllustration =
-      '${_base}interest_rate.svg';
-  static const String searchExchangeRateIllustration =
-      '${_base}exchange_rate.svg';
-  static const String searchExchangeIllustration =
-      '${_base}exchange.svg';
+  static const String homeCardVisa = '${_base}visa.svg';
 }
 
 class AppNetworkImages {
   AppNetworkImages._();
 
   static const String currentUserAvatar = 'https://i.pravatar.cc/150?img=12';
+  static const String beneficiaryEmma = 'https://i.pravatar.cc/150?img=5';
+  static const String beneficiaryJustin = 'https://i.pravatar.cc/150?img=13';
+  static const String beneficiaryAmanda = 'https://i.pravatar.cc/150?img=25';
 }

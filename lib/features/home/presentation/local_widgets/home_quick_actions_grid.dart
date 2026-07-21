@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:go_router/go_router.dart';
 import '../../../../config/app_assets.dart';
 import '../../../../config/app_colors.dart';
+import '../../../../routes/app_routes.dart';
 import 'home_quick_action.dart';
 
 class HomeQuickActionsGrid extends StatelessWidget {
@@ -12,7 +14,11 @@ class HomeQuickActionsGrid extends StatelessWidget {
       iconAsset: AppIcons.categoryAccountAndCard,
       label: 'Account and Card',
     ),
-    HomeQuickAction(iconAsset: AppIcons.categoryTransfer, label: 'Transfer'),
+    HomeQuickAction(
+      iconAsset: AppIcons.categoryTransfer,
+      label: 'Transfer',
+      route: AppRoutes.transfer,
+    ),
     HomeQuickAction(iconAsset: AppIcons.categoryWithdraw, label: 'Withdraw'),
     HomeQuickAction(
       iconAsset: AppIcons.categoryMobilePrepaid,
@@ -65,28 +71,31 @@ class _QuickActionTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: AppColors.white,
-        borderRadius: BorderRadius.circular(15),
-        boxShadow: AppColors.cardShadowNeutral,
-      ),
-      padding: const EdgeInsets.symmetric(horizontal: 8),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          SvgPicture.asset(action.iconAsset, width: 36, height: 36),
-          const SizedBox(height: 8),
-          Text(
-            action.label,
-            textAlign: TextAlign.center,
-            maxLines: 2,
-            overflow: TextOverflow.ellipsis,
-            style: Theme.of(
-              context,
-            ).textTheme.bodySmall?.copyWith(color: AppColors.neutral500),
-          ),
-        ],
+    return GestureDetector(
+      onTap: action.route == null ? null : () => context.push(action.route!),
+      child: Container(
+        decoration: BoxDecoration(
+          color: AppColors.white,
+          borderRadius: BorderRadius.circular(15),
+          boxShadow: AppColors.cardShadowNeutral,
+        ),
+        padding: const EdgeInsets.symmetric(horizontal: 8),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            SvgPicture.asset(action.iconAsset, width: 36, height: 36),
+            const SizedBox(height: 8),
+            Text(
+              action.label,
+              textAlign: TextAlign.center,
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
+              style: Theme.of(
+                context,
+              ).textTheme.bodySmall?.copyWith(color: AppColors.neutral500),
+            ),
+          ],
+        ),
       ),
     );
   }

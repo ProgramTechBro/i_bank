@@ -2,13 +2,13 @@ import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 import '../../../../core/errors/failures.dart';
 import '../../data/repo/transfer_repository.dart';
-import '../entities/transfer_entity.dart';
+import '../entities/account_entity.dart';
 
 @injectable
-class SendTransferUseCase {
+class GetAccountsUseCase {
   final TransferRepository repository;
-  const SendTransferUseCase(this.repository);
+  const GetAccountsUseCase(this.repository);
 
-  Future<Either<Failure, Unit>> call(TransferEntity transfer) =>
-      repository.sendTransfer(transfer);
+  Future<Either<Failure, List<AccountEntity>>> call() =>
+      repository.getAccounts();
 }
