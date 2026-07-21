@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import '../../../../config/app_assets.dart';
-import '../../../../config/app_colors.dart';
+import '../../config/app_assets.dart';
+import '../../config/app_colors.dart';
 
-class HomeBottomNavBar extends StatelessWidget {
-  const HomeBottomNavBar({
+class AppBottomNavBar extends StatelessWidget {
+  const AppBottomNavBar({
     super.key,
     required this.selectedIndex,
     required this.onTap,

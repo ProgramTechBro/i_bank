@@ -29,6 +29,7 @@ dependencies:
   freezed_annotation: ^2.4.4
   json_annotation: ^4.9.0
   flutter_svg:
+  country_flags: ^3.1.0
 
 dev_dependencies:
   flutter_test:
