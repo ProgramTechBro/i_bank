@@ -10,6 +10,7 @@ class AppImages {
       '${_base}auth_sign_up_illustration.svg';
   static const String changePasswordSuccessIllustration =
       '${_base}change_password_success_illustration.svg';
+  static const String branchMap = '${_base}map.png';
 }
 
 class AppIcons {
@@ -36,6 +37,14 @@ class AppIcons {
   static const String categoryTransactionReport =
       '${_base}transaction_report.svg';
   static const String categoryBeneficiary = '${_base}beneficiary.svg';
+  static const String searchBranchIllustration =
+      '${_base}branches.svg';
+  static const String searchInterestRateIllustration =
+      '${_base}interest_rate.svg';
+  static const String searchExchangeRateIllustration =
+      '${_base}exchange_rate.svg';
+  static const String searchExchangeIllustration =
+      '${_base}exchange.svg';
 }
 
 class AppNetworkImages {
