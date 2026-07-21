@@ -1,3 +1,0 @@
-class TransferModel {
-  const TransferModel();
-}

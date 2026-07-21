@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:intl/intl.dart';
+import '../../../../config/app_assets.dart';
 import '../../../../config/app_colors.dart';
 
 class HomeBalanceCard extends StatelessWidget {
@@ -68,17 +70,17 @@ class HomeBalanceCard extends StatelessWidget {
                     const ColoredBox(color: AppColors.cardIndigoMid),
                     Positioned(
                       right: -86,
-                      top: -41,
+                      top: -51,
                       child: _CircleBlob(
                         size: 190,
                         color: AppColors.cardSkyBlue,
                       ),
                     ),
                     Positioned(
-                      left: -145,
-                      top: -73,
+                      left: -175,
+                      top: -53,
                       child: _CircleBlob(
-                        size: 381,
+                        size: 420,
                         color: AppColors.cardIndigoDark,
                       ),
                     ),
@@ -98,6 +100,7 @@ class HomeBalanceCard extends StatelessWidget {
                           Text(
                             cardNickname,
                             style: textTheme.labelLarge?.copyWith(
+                              fontSize: 18,
                               color: AppColors.white,
                             ),
                           ),
@@ -119,12 +122,12 @@ class HomeBalanceCard extends StatelessWidget {
                                   color: AppColors.white,
                                 ),
                               ),
-                              Text(
-                                'VISA',
-                                style: textTheme.titleSmall?.copyWith(
-                                  color: AppColors.white,
-                                  fontSize: 16,
-                                  fontStyle: FontStyle.italic,
+                              SvgPicture.asset(
+                                AppIcons.homeCardVisa,
+                                height: 16,
+                                colorFilter: const ColorFilter.mode(
+                                  AppColors.white,
+                                  BlendMode.srcIn,
                                 ),
                               ),
                             ],

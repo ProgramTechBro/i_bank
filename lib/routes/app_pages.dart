@@ -8,9 +8,11 @@ import '../features/branch_locator/presentation/branch_screen.dart';
 import '../features/branch_locator/presentation/exchange_rate_screen.dart';
 import '../features/branch_locator/presentation/interest_rate_screen.dart';
 import '../features/branch_locator/presentation/search_screen.dart';
+import '../features/exchange/presentation/exchange_screen.dart';
 import '../features/home/presentation/home_screen.dart';
 import '../features/settings/presentation/language_screen.dart';
 import '../features/splash/presentation/splash_screen.dart';
+import '../features/transfer/presentation/transfer_screen.dart';
 import 'app_routes.dart';
 
 class AppPages {
@@ -46,6 +48,14 @@ class AppPages {
       GoRoute(
         path: AppRoutes.language,
         builder: (context, state) => const LanguageScreen(),
+      ),
+      GoRoute(
+        path: AppRoutes.exchange,
+        builder: (context, state) => const ExchangeScreen(),
+      ),
+      GoRoute(
+        path: AppRoutes.transfer,
+        builder: (context, state) => const TransferScreen(),
       ),
       GoRoute(
         path: AppRoutes.signIn,
