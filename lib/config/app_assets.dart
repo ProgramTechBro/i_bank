@@ -5,11 +5,11 @@ class AppImages {
 
   static const String splashLogo = '${_base}splash_logo.svg';
   static const String authSignInIllustration =
-      '${_base}auth_sign_in_illustration.png';
+      '${_base}auth_sign_in_illustration.svg';
   static const String authSignUpIllustration =
-      '${_base}auth_sign_up_illustration.png';
+      '${_base}auth_sign_up_illustration.svg';
   static const String changePasswordSuccessIllustration =
-      '${_base}change_password_success_illustration.png';
+      '${_base}change_password_success_illustration.svg';
 }
 
 class AppIcons {

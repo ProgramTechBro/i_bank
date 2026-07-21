@@ -37,10 +37,7 @@ class _SplashLogo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SvgPicture.asset(
-      AppImages.splashLogo,
-      height: 66,
-    );
+    return SvgPicture.asset(AppImages.splashLogo, height: 66);
   }
 }
 

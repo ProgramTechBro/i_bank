@@ -7,14 +7,12 @@ class ForgotPasswordPhoneStep extends StatelessWidget {
     super.key,
     required this.phoneController,
     required this.onPhoneChanged,
-    required this.isSendEnabled,
     required this.isSending,
     required this.onSend,
   });
 
   final TextEditingController phoneController;
   final ValueChanged<String> onPhoneChanged;
-  final bool isSendEnabled;
   final bool isSending;
   final VoidCallback onSend;
 
@@ -37,11 +35,7 @@ class ForgotPasswordPhoneStep extends StatelessWidget {
           style: Theme.of(context).textTheme.labelLarge,
         ),
         const SizedBox(height: 16),
-        AppButton(
-          label: 'Send',
-          isLoading: isSending,
-          onPressed: isSendEnabled ? onSend : null,
-        ),
+        AppButton(label: 'Send', isLoading: isSending, onPressed: onSend),
       ],
     );
   }

@@ -38,7 +38,9 @@ class TermsAndConditionsCheckbox extends StatelessWidget {
                 color: AppColors.neutral900,
               ),
               children: [
-                const TextSpan(text: 'By creating an account your aggree to our '),
+                const TextSpan(
+                  text: 'By creating an account your aggree to our ',
+                ),
                 TextSpan(
                   text: 'Term and Condtions',
                   style: textTheme.labelSmall?.copyWith(

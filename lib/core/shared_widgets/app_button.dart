@@ -13,22 +13,22 @@ class AppButton extends StatelessWidget {
   final VoidCallback? onPressed;
   final bool isLoading;
 
-  bool get _isEnabled => onPressed != null && !isLoading;
-
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       height: 44,
       width: double.infinity,
       child: ElevatedButton(
-        onPressed: _isEnabled ? onPressed : null,
+        onPressed: isLoading ? null : onPressed,
         style: ElevatedButton.styleFrom(
           backgroundColor: AppColors.primary,
-          disabledBackgroundColor: AppColors.primaryTint,
+          disabledBackgroundColor: AppColors.primary,
           foregroundColor: AppColors.white,
           disabledForegroundColor: AppColors.white,
           elevation: 0,
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(15),
+          ),
         ),
         child: isLoading
             ? const SizedBox(

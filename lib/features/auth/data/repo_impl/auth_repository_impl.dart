@@ -24,11 +24,7 @@ class AuthRepositoryImpl implements AuthRepository {
     required String phone,
     required String password,
   }) => _run(
-    () => localDatasource.signUp(
-      name: name,
-      phone: phone,
-      password: password,
-    ),
+    () => localDatasource.signUp(name: name, phone: phone, password: password),
   );
 
   @override
@@ -40,11 +36,8 @@ class AuthRepositoryImpl implements AuthRepository {
       _run(() => localDatasource.verifyResetCode(code: code));
 
   @override
-  Future<Either<Failure, Unit>> changePassword({
-    required String newPassword,
-  }) => _run(
-    () => localDatasource.changePassword(newPassword: newPassword),
-  );
+  Future<Either<Failure, Unit>> changePassword({required String newPassword}) =>
+      _run(() => localDatasource.changePassword(newPassword: newPassword));
 
   Future<Either<Failure, Unit>> _run(Future<void> Function() action) async {
     try {
