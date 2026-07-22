@@ -16,6 +16,8 @@ import '../features/transfer/domain/entities/transfer_entity.dart';
 import '../features/transfer/presentation/transfer_confirm_screen.dart';
 import '../features/transfer/presentation/transfer_screen.dart';
 import '../features/transfer/presentation/transfer_success_screen.dart';
+import '../features/withdraw/presentation/withdraw_screen.dart';
+import '../features/withdraw/presentation/withdraw_success_screen.dart';
 import 'app_routes.dart';
 
 class AppPages {
@@ -80,6 +82,14 @@ class AppPages {
             toName: extra['toName'] as String,
           );
         },
+      ),
+      GoRoute(
+        path: AppRoutes.withdraw,
+        builder: (context, state) => const WithdrawScreen(),
+      ),
+      GoRoute(
+        path: AppRoutes.withdrawSuccess,
+        builder: (context, state) => const WithdrawSuccessScreen(),
       ),
       GoRoute(
         path: AppRoutes.signIn,
