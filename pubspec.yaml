@@ -30,6 +30,7 @@ dependencies:
   json_annotation: ^4.9.0
   flutter_svg:
   country_flags: ^3.1.0
+  fl_chart: ^0.69.2
 
 dev_dependencies:
   flutter_test:

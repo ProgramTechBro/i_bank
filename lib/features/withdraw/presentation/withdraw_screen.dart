@@ -110,7 +110,9 @@ class _WithdrawScreenState extends ConsumerState<WithdrawScreen> {
             const SizedBox(height: 24),
             Text(
               'Choose amount',
-              style: textTheme.labelSmall?.copyWith(color: AppColors.neutral500),
+              style: textTheme.labelSmall?.copyWith(
+                color: AppColors.neutral500,
+              ),
             ),
             const SizedBox(height: 8),
             formState.isOtherSelected

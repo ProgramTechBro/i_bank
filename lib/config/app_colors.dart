@@ -23,6 +23,7 @@ class AppColors {
   static const Color semanticWarning = Color(0xFFFFAF2A);
   static const Color semanticSuccess = Color(0xFF52D5BA);
   static const Color semanticOrange = Color(0xFFFB6B18);
+  static const Color chartPink = Color(0xFFFBB8FF);
 
   static List<BoxShadow> cardShadowPrimary = [
     BoxShadow(

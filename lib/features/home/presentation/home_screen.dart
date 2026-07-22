@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../config/app_colors.dart';
 import '../../../core/providers/bottom_nav_provider.dart';
+import '../../../core/shared_widgets/app_bank_card.dart';
 import '../../../core/shared_widgets/app_bottom_nav_bar.dart';
 import '../../../core/shared_widgets/app_error_view.dart';
 import '../../../core/shared_widgets/app_loader.dart';
 import '../../../routes/app_routes.dart';
 import '../domain/entities/home_dashboard_entity.dart';
-import 'local_widgets/home_balance_card.dart';
 import 'local_widgets/home_header.dart';
 import 'local_widgets/home_quick_actions_grid.dart';
 import 'providers/home_dashboard_provider.dart';
@@ -72,7 +72,7 @@ class _HomeContent extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    HomeBalanceCard(
+                    AppBankCard(
                       cardHolderName: dashboard.cardHolderName,
                       cardNickname: dashboard.cardNickname,
                       maskedCardNumber: dashboard.maskedCardNumber,

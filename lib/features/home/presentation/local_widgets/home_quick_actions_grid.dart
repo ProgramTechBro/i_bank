@@ -43,6 +43,7 @@ class HomeQuickActionsGrid extends StatelessWidget {
     HomeQuickAction(
       iconAsset: AppIcons.categoryTransactionReport,
       label: 'Transaction report',
+      route: AppRoutes.transactionReport,
     ),
     HomeQuickAction(
       iconAsset: AppIcons.categoryBeneficiary,
