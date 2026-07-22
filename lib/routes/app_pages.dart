@@ -14,6 +14,7 @@ import '../features/settings/presentation/language_screen.dart';
 import '../features/splash/presentation/splash_screen.dart';
 import '../features/transfer/domain/entities/transfer_entity.dart';
 import '../features/transfer/presentation/transfer_confirm_screen.dart';
+import '../features/account_card/presentation/account_card_screen.dart';
 import '../features/transaction_report/presentation/transaction_report_screen.dart';
 import '../features/transfer/presentation/transfer_screen.dart';
 import '../features/transfer/presentation/transfer_success_screen.dart';
@@ -83,6 +84,10 @@ class AppPages {
             toName: extra['toName'] as String,
           );
         },
+      ),
+      GoRoute(
+        path: AppRoutes.accountCard,
+        builder: (context, state) => const AccountCardScreen(),
       ),
       GoRoute(
         path: AppRoutes.transactionReport,

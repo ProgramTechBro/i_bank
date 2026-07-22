@@ -13,6 +13,7 @@ class HomeQuickActionsGrid extends StatelessWidget {
     HomeQuickAction(
       iconAsset: AppIcons.categoryAccountAndCard,
       label: 'Account and Card',
+      route: AppRoutes.accountCard,
     ),
     HomeQuickAction(
       iconAsset: AppIcons.categoryTransfer,
