@@ -75,10 +75,13 @@ class _TransferConfirmScreenState extends ConsumerState<TransferConfirmScreen> {
 
     ref.listen(provider.select((s) => s.faceMatched), (previous, matched) {
       if (matched) {
-        context.go(
-          AppRoutes.transferSuccess,
-          extra: {'amount': widget.transfer.amount, 'toName': widget.toName},
-        );
+        Future.delayed(const Duration(milliseconds: 700), () {
+          if (!context.mounted) return;
+          context.go(
+            AppRoutes.transferSuccess,
+            extra: {'amount': widget.transfer.amount, 'toName': widget.toName},
+          );
+        });
       }
     });
 
@@ -91,7 +94,9 @@ class _TransferConfirmScreenState extends ConsumerState<TransferConfirmScreen> {
           children: [
             Text(
               'Confirm transaction information',
-              style: textTheme.labelSmall?.copyWith(color: AppColors.neutral500),
+              style: textTheme.labelSmall?.copyWith(
+                color: AppColors.neutral500,
+              ),
             ),
             const SizedBox(height: 16),
             ConfirmInfoField(label: 'From', value: widget.fromMasked),
@@ -99,7 +104,10 @@ class _TransferConfirmScreenState extends ConsumerState<TransferConfirmScreen> {
             ConfirmInfoField(label: 'To', value: widget.toName),
             if (state.step == ConfirmStep.faceId) ...[
               const SizedBox(height: 16),
-              const ConfirmInfoField(label: 'Beneficiary bank', value: 'US bank'),
+              const ConfirmInfoField(
+                label: 'Beneficiary bank',
+                value: 'US bank',
+              ),
             ],
             const SizedBox(height: 16),
             ConfirmInfoField(
@@ -127,7 +135,7 @@ class _TransferConfirmScreenState extends ConsumerState<TransferConfirmScreen> {
                 onTap: _onFingerprintTap,
                 onConfirm: notifier.confirmFingerprint,
               ),
-              ConfirmStep.faceId => const _FaceIdStep(),
+              ConfirmStep.faceId => _FaceIdStep(isMatched: state.faceMatched),
             },
           ],
         ),
@@ -180,7 +188,10 @@ class _OtpStep extends StatelessWidget {
                 ),
                 child: Text(
                   'Get OTP',
-                  style: textTheme.labelLarge?.copyWith(color: AppColors.white,fontSize: 12),
+                  style: textTheme.labelLarge?.copyWith(
+                    color: AppColors.white,
+                    fontSize: 12,
+                  ),
                 ),
               ),
             ),
@@ -225,7 +236,9 @@ class _FingerprintStep extends StatelessWidget {
 }
 
 class _FaceIdStep extends StatelessWidget {
-  const _FaceIdStep();
+  const _FaceIdStep({required this.isMatched});
+
+  final bool isMatched;
 
   @override
   Widget build(BuildContext context) {
@@ -237,7 +250,7 @@ class _FaceIdStep extends StatelessWidget {
           style: textTheme.labelSmall?.copyWith(color: AppColors.neutral500),
         ),
         const SizedBox(height: 16),
-        const Center(child: FaceIdScanWidget(isMatched: false)),
+        Center(child: FaceIdScanWidget(isMatched: isMatched)),
         const SizedBox(height: 24),
         const AppButton(label: 'Confirm', onPressed: null),
       ],
