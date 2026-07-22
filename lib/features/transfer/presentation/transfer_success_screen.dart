@@ -83,9 +83,7 @@ class _TransferSuccessScreenState extends State<TransferSuccessScreen>
                   color: AppColors.neutral900,
                 ),
                 children: [
-                  const TextSpan(
-                    text: 'You have successfully transferred ',
-                  ),
+                  const TextSpan(text: 'You have successfully transferred '),
                   TextSpan(
                     text: '\$${widget.amount.toStringAsFixed(0)}',
                     style: const TextStyle(color: AppColors.semanticError),

@@ -46,6 +46,8 @@ class AppIcons {
       '${_base}transaction_report.svg';
   static const String categoryBeneficiary = '${_base}beneficiary.svg';
   static const String homeCardVisa = '${_base}visa.svg';
+  static const String faceIdInactive = '${_base}face_id_inactive.svg';
+  static const String faceIdActive = '${_base}face_id_active.svg';
 }
 
 class AppNetworkImages {

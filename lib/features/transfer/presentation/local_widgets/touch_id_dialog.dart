@@ -25,9 +25,7 @@ class TouchIdDialog extends StatelessWidget {
             Text(
               'Access to the application',
               textAlign: TextAlign.center,
-              style: textTheme.bodySmall?.copyWith(
-                color: AppColors.neutral500,
-              ),
+              style: textTheme.bodySmall?.copyWith(color: AppColors.neutral500),
             ),
             const SizedBox(height: 20),
             TextButton(
