@@ -15,6 +15,8 @@ class AppRoutes {
   static const String transfer = '/transfer';
   static const String transferConfirm = '/transfer/confirm';
   static const String transferSuccess = '/transfer/success';
+  static const String withdraw = '/withdraw';
+  static const String withdrawSuccess = '/withdraw/success';
   static const String signIn = '/sign-in';
   static const String signUp = '/sign-up';
   static const String forgotPassword = '/forgot-password';

@@ -19,7 +19,11 @@ class HomeQuickActionsGrid extends StatelessWidget {
       label: 'Transfer',
       route: AppRoutes.transfer,
     ),
-    HomeQuickAction(iconAsset: AppIcons.categoryWithdraw, label: 'Withdraw'),
+    HomeQuickAction(
+      iconAsset: AppIcons.categoryWithdraw,
+      label: 'Withdraw',
+      route: AppRoutes.withdraw,
+    ),
     HomeQuickAction(
       iconAsset: AppIcons.categoryMobilePrepaid,
       label: 'Mobile prepaid',
