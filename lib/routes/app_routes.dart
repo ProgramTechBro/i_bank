@@ -18,6 +18,7 @@ class AppRoutes {
   static const String withdraw = '/withdraw';
   static const String withdrawSuccess = '/withdraw/success';
   static const String transactionReport = '/transaction-report';
+  static const String accountCard = '/account-card';
   static const String signIn = '/sign-in';
   static const String signUp = '/sign-up';
   static const String forgotPassword = '/forgot-password';
