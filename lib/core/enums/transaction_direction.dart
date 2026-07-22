@@ -1,0 +1,1 @@
+enum TransactionDirection { increase, reduction }

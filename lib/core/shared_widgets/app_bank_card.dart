@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:intl/intl.dart';
-import '../../../../config/app_assets.dart';
-import '../../../../config/app_colors.dart';
+import '../../config/app_assets.dart';
+import '../../config/app_colors.dart';
 
-class HomeBalanceCard extends StatelessWidget {
-  const HomeBalanceCard({
+class AppBankCard extends StatelessWidget {
+  const AppBankCard({
     super.key,
     required this.cardHolderName,
     required this.cardNickname,
