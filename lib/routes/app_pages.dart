@@ -10,6 +10,10 @@ import '../features/branch_locator/presentation/interest_rate_screen.dart';
 import '../features/branch_locator/presentation/search_screen.dart';
 import '../features/exchange/presentation/exchange_screen.dart';
 import '../features/home/presentation/home_screen.dart';
+import '../features/mobile_prepaid/domain/entities/prepaid_recharge_entity.dart';
+import '../features/mobile_prepaid/presentation/mobile_prepaid_confirm_screen.dart';
+import '../features/mobile_prepaid/presentation/mobile_prepaid_screen.dart';
+import '../features/mobile_prepaid/presentation/mobile_prepaid_success_screen.dart';
 import '../features/pay_bill/domain/entities/payment_history_entry_entity.dart';
 import '../features/pay_bill/presentation/bill_check_screen.dart';
 import '../features/pay_bill/presentation/bill_pay_screen.dart';
@@ -149,6 +153,24 @@ class AppPages {
         path: AppRoutes.billPaymentSuccess,
         builder: (context, state) =>
             BillPaymentSuccessScreen(category: state.extra! as BillCategory),
+      ),
+      GoRoute(
+        path: AppRoutes.mobilePrepaid,
+        builder: (context, state) => const MobilePrepaidScreen(),
+      ),
+      GoRoute(
+        path: AppRoutes.mobilePrepaidConfirm,
+        builder: (context, state) {
+          final extra = state.extra! as Map<String, dynamic>;
+          return MobilePrepaidConfirmScreen(
+            recharge: extra['recharge'] as PrepaidRechargeEntity,
+            fromMasked: extra['fromMasked'] as String,
+          );
+        },
+      ),
+      GoRoute(
+        path: AppRoutes.mobilePrepaidSuccess,
+        builder: (context, state) => const MobilePrepaidSuccessScreen(),
       ),
       GoRoute(
         path: AppRoutes.signIn,

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import '../../../../config/app_colors.dart';
+import '../../config/app_colors.dart';
 
-class TouchIdDialog extends StatelessWidget {
-  const TouchIdDialog({super.key});
+class AppTouchIdDialog extends StatelessWidget {
+  const AppTouchIdDialog({super.key});
 
   @override
   Widget build(BuildContext context) {

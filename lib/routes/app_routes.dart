@@ -25,6 +25,9 @@ class AppRoutes {
   static const String billCheck = '/pay-bill/check';
   static const String billPay = '/pay-bill/pay';
   static const String billPaymentSuccess = '/pay-bill/success';
+  static const String mobilePrepaid = '/mobile-prepaid';
+  static const String mobilePrepaidConfirm = '/mobile-prepaid/confirm';
+  static const String mobilePrepaidSuccess = '/mobile-prepaid/success';
   static const String signIn = '/sign-in';
   static const String signUp = '/sign-up';
   static const String forgotPassword = '/forgot-password';

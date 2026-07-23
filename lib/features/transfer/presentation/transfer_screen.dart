@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import '../../../config/app_colors.dart';
+import '../../../core/shared_widgets/app_beneficiary_card.dart';
 import '../../../core/shared_widgets/app_error_view.dart';
 import '../../../core/shared_widgets/app_loader.dart';
 import '../../../routes/app_routes.dart';
@@ -9,7 +10,6 @@ import '../domain/entities/transaction_type.dart';
 import '../domain/entities/transfer_entity.dart';
 import 'local_widgets/account_selector_field.dart';
 import 'local_widgets/account_picker_dialog.dart';
-import 'local_widgets/beneficiary_card.dart';
 import 'local_widgets/transaction_type_card.dart';
 import 'local_widgets/transfer_details_form.dart';
 import 'providers/accounts_provider.dart';
@@ -171,10 +171,11 @@ class _TransferScreenState extends ConsumerState<TransferScreen> {
                   itemCount: beneficiaries.length + 1,
                   separatorBuilder: (_, _) => const SizedBox(width: 12),
                   itemBuilder: (context, index) {
-                    if (index == 0) return const AddBeneficiaryCard();
+                    if (index == 0) return const AppAddBeneficiaryCard();
                     final beneficiary = beneficiaries[index - 1];
-                    return BeneficiaryCard(
-                      beneficiary: beneficiary,
+                    return AppBeneficiaryCard(
+                      name: beneficiary.name,
+                      avatarUrl: beneficiary.avatarUrl,
                       isSelected:
                           formState.selectedBeneficiaryIndex == index - 1,
                       onTap: () {

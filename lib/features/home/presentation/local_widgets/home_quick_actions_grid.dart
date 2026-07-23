@@ -28,6 +28,7 @@ class HomeQuickActionsGrid extends StatelessWidget {
     HomeQuickAction(
       iconAsset: AppIcons.categoryMobilePrepaid,
       label: 'Mobile prepaid',
+      route: AppRoutes.mobilePrepaid,
     ),
     HomeQuickAction(
       iconAsset: AppIcons.categoryPayTheBill,
