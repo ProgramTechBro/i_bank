@@ -32,6 +32,7 @@ class HomeQuickActionsGrid extends StatelessWidget {
     HomeQuickAction(
       iconAsset: AppIcons.categoryPayTheBill,
       label: 'Pay the bill',
+      route: AppRoutes.payBill,
     ),
     HomeQuickAction(
       iconAsset: AppIcons.categorySaveOnline,

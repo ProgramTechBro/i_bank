@@ -19,6 +19,12 @@ class AppRoutes {
   static const String withdrawSuccess = '/withdraw/success';
   static const String transactionReport = '/transaction-report';
   static const String accountCard = '/account-card';
+  static const String payBill = '/pay-bill';
+  static const String paymentHistory = '/pay-bill/history';
+  static const String billReceipt = '/pay-bill/receipt';
+  static const String billCheck = '/pay-bill/check';
+  static const String billPay = '/pay-bill/pay';
+  static const String billPaymentSuccess = '/pay-bill/success';
   static const String signIn = '/sign-in';
   static const String signUp = '/sign-up';
   static const String forgotPassword = '/forgot-password';
