@@ -52,6 +52,7 @@ class HomeQuickActionsGrid extends StatelessWidget {
     HomeQuickAction(
       iconAsset: AppIcons.categoryBeneficiary,
       label: 'Beneficiary',
+      route: AppRoutes.beneficiary,
     ),
   ];
 

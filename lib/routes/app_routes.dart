@@ -32,6 +32,9 @@ class AppRoutes {
   static const String saveOnlineAdd = '/save-online/add';
   static const String saveOnlineChooseCard = '/save-online/choose-card';
   static const String saveOnlineManagement = '/save-online/management';
+  static const String beneficiary = '/beneficiary';
+  static const String beneficiaryAdd = '/beneficiary/add';
+  static const String beneficiaryDetail = '/beneficiary/detail';
   static const String saveOnlineSuccess = '/save-online/success';
   static const String signIn = '/sign-in';
   static const String signUp = '/sign-up';

@@ -7,6 +7,10 @@ import '../features/auth/presentation/sign_up_screen.dart';
 import '../features/branch_locator/presentation/branch_screen.dart';
 import '../features/branch_locator/presentation/exchange_rate_screen.dart';
 import '../features/branch_locator/presentation/interest_rate_screen.dart';
+import '../features/beneficiary/domain/entities/beneficiary_entity.dart';
+import '../features/beneficiary/presentation/add_beneficiary_screen.dart';
+import '../features/beneficiary/presentation/beneficiary_detail_screen.dart';
+import '../features/beneficiary/presentation/beneficiary_screen.dart';
 import '../features/branch_locator/presentation/search_screen.dart';
 import '../features/exchange/presentation/exchange_screen.dart';
 import '../features/home/presentation/home_screen.dart';
@@ -196,6 +200,20 @@ class AppPages {
       GoRoute(
         path: AppRoutes.saveOnlineSuccess,
         builder: (context, state) => const SaveOnlineSuccessScreen(),
+      ),
+      GoRoute(
+        path: AppRoutes.beneficiary,
+        builder: (context, state) => const BeneficiaryScreen(),
+      ),
+      GoRoute(
+        path: AppRoutes.beneficiaryAdd,
+        builder: (context, state) => const AddBeneficiaryScreen(),
+      ),
+      GoRoute(
+        path: AppRoutes.beneficiaryDetail,
+        builder: (context, state) => BeneficiaryDetailScreen(
+          beneficiary: state.extra! as BeneficiaryEntity,
+        ),
       ),
       GoRoute(
         path: AppRoutes.signIn,

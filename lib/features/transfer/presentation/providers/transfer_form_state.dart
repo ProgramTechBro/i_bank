@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import '../../domain/entities/transaction_type.dart';
+import '../../../../core/enums/transaction_type.dart';
 
 part 'transfer_form_state.freezed.dart';
 

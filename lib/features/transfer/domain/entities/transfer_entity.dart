@@ -1,4 +1,4 @@
-import 'transaction_type.dart';
+import '../../../../core/enums/transaction_type.dart';
 
 class TransferEntity {
   final String name;
