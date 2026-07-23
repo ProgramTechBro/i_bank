@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
-import '../../../../config/app_colors.dart';
-import '../../domain/entities/beneficiary_entity.dart';
+import '../../config/app_colors.dart';
 
-class BeneficiaryCard extends StatelessWidget {
-  const BeneficiaryCard({
+class AppBeneficiaryCard extends StatelessWidget {
+  const AppBeneficiaryCard({
     super.key,
-    required this.beneficiary,
+    required this.name,
+    required this.avatarUrl,
     required this.isSelected,
     required this.onTap,
   });
 
-  final BeneficiaryEntity beneficiary;
+  final String name;
+  final String avatarUrl;
   final bool isSelected;
   final VoidCallback onTap;
 
@@ -36,11 +37,11 @@ class BeneficiaryCard extends StatelessWidget {
               backgroundColor: AppColors.white,
               child: CircleAvatar(
                 radius: 28,
-                backgroundImage: NetworkImage(beneficiary.avatarUrl),
+                backgroundImage: NetworkImage(avatarUrl),
               ),
             ),
             Text(
-              beneficiary.name,
+              name,
               style: textTheme.bodyMedium?.copyWith(
                 color: isSelected ? AppColors.white : AppColors.neutral900,
               ),
@@ -52,8 +53,8 @@ class BeneficiaryCard extends StatelessWidget {
   }
 }
 
-class AddBeneficiaryCard extends StatelessWidget {
-  const AddBeneficiaryCard({super.key, this.onTap});
+class AppAddBeneficiaryCard extends StatelessWidget {
+  const AppAddBeneficiaryCard({super.key, this.onTap});
 
   final VoidCallback? onTap;
 

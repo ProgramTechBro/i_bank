@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
-import '../../../../config/app_colors.dart';
+import '../../config/app_colors.dart';
 
-class ConfirmInfoField extends StatelessWidget {
-  const ConfirmInfoField({super.key, required this.label, required this.value});
+class AppConfirmInfoField extends StatelessWidget {
+  const AppConfirmInfoField({
+    super.key,
+    required this.label,
+    required this.value,
+  });
 
   final String label;
   final String value;

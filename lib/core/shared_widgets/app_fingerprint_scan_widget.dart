@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import '../../../../config/app_colors.dart';
+import '../../config/app_colors.dart';
 
-class FingerprintScanWidget extends StatefulWidget {
-  const FingerprintScanWidget({
+class AppFingerprintScanWidget extends StatefulWidget {
+  const AppFingerprintScanWidget({
     super.key,
     required this.isScanning,
     required this.isVerified,
@@ -14,10 +14,11 @@ class FingerprintScanWidget extends StatefulWidget {
   final VoidCallback onTap;
 
   @override
-  State<FingerprintScanWidget> createState() => _FingerprintScanWidgetState();
+  State<AppFingerprintScanWidget> createState() =>
+      _AppFingerprintScanWidgetState();
 }
 
-class _FingerprintScanWidgetState extends State<FingerprintScanWidget>
+class _AppFingerprintScanWidgetState extends State<AppFingerprintScanWidget>
     with SingleTickerProviderStateMixin {
   late final AnimationController _pulseController = AnimationController(
     vsync: this,

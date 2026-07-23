@@ -8,29 +8,27 @@ import '../../../core/shared_widgets/app_fingerprint_scan_widget.dart';
 import '../../../core/shared_widgets/app_text_field.dart';
 import '../../../core/shared_widgets/app_touch_id_dialog.dart';
 import '../../../routes/app_routes.dart';
-import '../domain/entities/transfer_entity.dart';
-import 'local_widgets/face_id_scan_widget.dart';
-import 'providers/transfer_confirm_provider.dart';
-import 'providers/transfer_confirm_state.dart';
+import '../domain/entities/prepaid_recharge_entity.dart';
+import 'providers/prepaid_confirm_provider.dart';
+import 'providers/prepaid_confirm_state.dart';
 
-class TransferConfirmScreen extends ConsumerStatefulWidget {
-  const TransferConfirmScreen({
+class MobilePrepaidConfirmScreen extends ConsumerStatefulWidget {
+  const MobilePrepaidConfirmScreen({
     super.key,
-    required this.transfer,
+    required this.recharge,
     required this.fromMasked,
-    required this.toName,
   });
 
-  final TransferEntity transfer;
+  final PrepaidRechargeEntity recharge;
   final String fromMasked;
-  final String toName;
 
   @override
-  ConsumerState<TransferConfirmScreen> createState() =>
-      _TransferConfirmScreenState();
+  ConsumerState<MobilePrepaidConfirmScreen> createState() =>
+      _MobilePrepaidConfirmScreenState();
 }
 
-class _TransferConfirmScreenState extends ConsumerState<TransferConfirmScreen> {
+class _MobilePrepaidConfirmScreenState
+    extends ConsumerState<MobilePrepaidConfirmScreen> {
   final _otpController = TextEditingController();
 
   @override
@@ -41,7 +39,7 @@ class _TransferConfirmScreenState extends ConsumerState<TransferConfirmScreen> {
 
   Future<void> _onFingerprintTap() async {
     final notifier = ref.read(
-      transferConfirmNotifierProvider(widget.transfer).notifier,
+      prepaidConfirmNotifierProvider(widget.recharge).notifier,
     );
     notifier.startFingerprintScan();
 
@@ -64,7 +62,7 @@ class _TransferConfirmScreenState extends ConsumerState<TransferConfirmScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final provider = transferConfirmNotifierProvider(widget.transfer);
+    final provider = prepaidConfirmNotifierProvider(widget.recharge);
     final state = ref.watch(provider);
     final notifier = ref.read(provider.notifier);
     final textTheme = Theme.of(context).textTheme;
@@ -73,15 +71,9 @@ class _TransferConfirmScreenState extends ConsumerState<TransferConfirmScreen> {
       _otpController.text = next;
     });
 
-    ref.listen(provider.select((s) => s.faceMatched), (previous, matched) {
-      if (matched) {
-        Future.delayed(const Duration(milliseconds: 700), () {
-          if (!context.mounted) return;
-          context.go(
-            AppRoutes.transferSuccess,
-            extra: {'amount': widget.transfer.amount, 'toName': widget.toName},
-          );
-        });
+    ref.listen(provider.select((s) => s.isSubmitted), (previous, submitted) {
+      if (submitted) {
+        context.go(AppRoutes.mobilePrepaidSuccess);
       }
     });
 
@@ -101,41 +93,24 @@ class _TransferConfirmScreenState extends ConsumerState<TransferConfirmScreen> {
             const SizedBox(height: 16),
             AppConfirmInfoField(label: 'From', value: widget.fromMasked),
             const SizedBox(height: 16),
-            AppConfirmInfoField(label: 'To', value: widget.toName),
-            if (state.step == ConfirmStep.faceId) ...[
-              const SizedBox(height: 16),
-              const AppConfirmInfoField(
-                label: 'Beneficiary bank',
-                value: 'US bank',
-              ),
-            ],
-            const SizedBox(height: 16),
-            AppConfirmInfoField(
-              label: 'Card number',
-              value: widget.transfer.cardNumber,
-            ),
-            const SizedBox(height: 16),
-            const AppConfirmInfoField(label: 'Transaction fee', value: '10\$'),
-            const SizedBox(height: 16),
-            AppConfirmInfoField(label: 'Content', value: widget.transfer.content),
+            AppConfirmInfoField(label: 'To', value: widget.recharge.phoneNumber),
             const SizedBox(height: 16),
             AppConfirmInfoField(
               label: 'Amount',
-              value: '\$${widget.transfer.amount.toStringAsFixed(0)}',
+              value: '\$${widget.recharge.amount.toStringAsFixed(0)}',
             ),
             const SizedBox(height: 24),
             switch (state.step) {
-              ConfirmStep.otp => _OtpStep(
+              PrepaidConfirmStep.otp => _OtpStep(
                 otpController: _otpController,
                 onConfirm: notifier.confirmOtp,
               ),
-              ConfirmStep.fingerprint => _FingerprintStep(
+              PrepaidConfirmStep.fingerprint => _FingerprintStep(
                 isScanning: state.isScanningFingerprint,
                 isVerified: state.fingerprintVerified,
                 onTap: _onFingerprintTap,
                 onConfirm: notifier.confirmFingerprint,
               ),
-              ConfirmStep.faceId => _FaceIdStep(isMatched: state.faceMatched),
             },
           ],
         ),
@@ -219,8 +194,14 @@ class _FingerprintStep extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final textTheme = Theme.of(context).textTheme;
     return Column(
       children: [
+        Text(
+          'Use Touch ID to verify transaction',
+          style: textTheme.labelSmall?.copyWith(color: AppColors.neutral500),
+        ),
+        const SizedBox(height: 16),
         Center(
           child: AppFingerprintScanWidget(
             isScanning: isScanning,
@@ -230,29 +211,6 @@ class _FingerprintStep extends StatelessWidget {
         ),
         const SizedBox(height: 24),
         AppButton(label: 'Confirm', onPressed: isVerified ? onConfirm : null),
-      ],
-    );
-  }
-}
-
-class _FaceIdStep extends StatelessWidget {
-  const _FaceIdStep({required this.isMatched});
-
-  final bool isMatched;
-
-  @override
-  Widget build(BuildContext context) {
-    final textTheme = Theme.of(context).textTheme;
-    return Column(
-      children: [
-        Text(
-          'Use Face ID to verify transaction',
-          style: textTheme.labelSmall?.copyWith(color: AppColors.neutral500),
-        ),
-        const SizedBox(height: 16),
-        Center(child: FaceIdScanWidget(isMatched: isMatched)),
-        const SizedBox(height: 24),
-        const AppButton(label: 'Confirm', onPressed: null),
       ],
     );
   }
