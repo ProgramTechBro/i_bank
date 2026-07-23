@@ -28,6 +28,11 @@ class AppRoutes {
   static const String mobilePrepaid = '/mobile-prepaid';
   static const String mobilePrepaidConfirm = '/mobile-prepaid/confirm';
   static const String mobilePrepaidSuccess = '/mobile-prepaid/success';
+  static const String saveOnline = '/save-online';
+  static const String saveOnlineAdd = '/save-online/add';
+  static const String saveOnlineChooseCard = '/save-online/choose-card';
+  static const String saveOnlineManagement = '/save-online/management';
+  static const String saveOnlineSuccess = '/save-online/success';
   static const String signIn = '/sign-in';
   static const String signUp = '/sign-up';
   static const String forgotPassword = '/forgot-password';
