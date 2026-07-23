@@ -38,6 +38,7 @@ class HomeQuickActionsGrid extends StatelessWidget {
     HomeQuickAction(
       iconAsset: AppIcons.categorySaveOnline,
       label: 'Save online',
+      route: AppRoutes.saveOnline,
     ),
     HomeQuickAction(
       iconAsset: AppIcons.categoryCreditCard,

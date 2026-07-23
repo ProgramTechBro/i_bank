@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../config/app_colors.dart';
+import '../../../core/shared_widgets/app_add_new_card_button.dart';
 import '../../../core/shared_widgets/app_bank_card.dart';
 import '../../../core/shared_widgets/app_error_view.dart';
 import '../../../core/shared_widgets/app_loader.dart';
 import '../domain/entities/account_card_report_entity.dart';
 import '../domain/entities/user_card_entity.dart';
 import 'local_widgets/account_card_tab_selector.dart';
-import 'local_widgets/add_new_card_button.dart';
 import 'local_widgets/bank_account_row_card.dart';
 import 'providers/account_card_report_provider.dart';
 import 'providers/account_card_tab_provider.dart';
@@ -118,7 +118,7 @@ class _CardTabContent extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 16),
-        AddNewCardButton(onTap: () {}),
+        AppAddNewCardButton(onTap: () {}),
       ],
     );
   }

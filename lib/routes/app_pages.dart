@@ -21,6 +21,11 @@ import '../features/pay_bill/presentation/bill_payment_success_screen.dart';
 import '../features/pay_bill/presentation/bill_receipt_screen.dart';
 import '../features/pay_bill/presentation/pay_bill_screen.dart';
 import '../features/pay_bill/presentation/payment_history_screen.dart';
+import '../features/save_online/presentation/account_management_screen.dart';
+import '../features/save_online/presentation/choose_card_screen.dart';
+import '../features/save_online/presentation/save_online_add_screen.dart';
+import '../features/save_online/presentation/save_online_screen.dart';
+import '../features/save_online/presentation/save_online_success_screen.dart';
 import '../features/settings/presentation/language_screen.dart';
 import '../features/splash/presentation/splash_screen.dart';
 import '../features/transfer/domain/entities/transfer_entity.dart';
@@ -171,6 +176,26 @@ class AppPages {
       GoRoute(
         path: AppRoutes.mobilePrepaidSuccess,
         builder: (context, state) => const MobilePrepaidSuccessScreen(),
+      ),
+      GoRoute(
+        path: AppRoutes.saveOnline,
+        builder: (context, state) => const SaveOnlineScreen(),
+      ),
+      GoRoute(
+        path: AppRoutes.saveOnlineAdd,
+        builder: (context, state) => const SaveOnlineAddScreen(),
+      ),
+      GoRoute(
+        path: AppRoutes.saveOnlineChooseCard,
+        builder: (context, state) => const ChooseCardScreen(),
+      ),
+      GoRoute(
+        path: AppRoutes.saveOnlineManagement,
+        builder: (context, state) => const AccountManagementScreen(),
+      ),
+      GoRoute(
+        path: AppRoutes.saveOnlineSuccess,
+        builder: (context, state) => const SaveOnlineSuccessScreen(),
       ),
       GoRoute(
         path: AppRoutes.signIn,

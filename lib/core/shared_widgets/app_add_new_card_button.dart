@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import '../../../../config/app_colors.dart';
+import '../../config/app_colors.dart';
 
-class AddNewCardButton extends StatelessWidget {
-  const AddNewCardButton({super.key, required this.onTap});
+class AppAddNewCardButton extends StatelessWidget {
+  const AppAddNewCardButton({super.key, required this.onTap});
 
   final VoidCallback onTap;
 

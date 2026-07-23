@@ -25,6 +25,7 @@ class AppImages {
   static const String payBillInternet = '${_base}internet_bill.svg';
   static const String payBillSuccessIllustration =
       '${_base}pay_bill_success.svg';
+  static const String saveOnlineIllustration = '${_base}save_main.svg';
 }
 
 class AppIcons {
@@ -54,6 +55,9 @@ class AppIcons {
   static const String homeCardVisa = '${_base}visa.svg';
   static const String faceIdInactive = '${_base}face_id_inactive.svg';
   static const String faceIdActive = '${_base}face_id_active.svg';
+  static const String saveOnlineAdd = '${_base}save_add.svg';
+  static const String saveOnlineManagement =
+      '${_base}save_management.svg';
 }
 
 class AppNetworkImages {
