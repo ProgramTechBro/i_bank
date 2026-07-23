@@ -1,5 +1,5 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import '../../domain/entities/transaction_type.dart';
+import '../../../../core/enums/transaction_type.dart';
 import 'transfer_form_state.dart';
 
 part 'transfer_form_provider.g.dart';

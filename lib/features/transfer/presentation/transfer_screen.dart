@@ -6,7 +6,7 @@ import '../../../core/shared_widgets/app_beneficiary_card.dart';
 import '../../../core/shared_widgets/app_error_view.dart';
 import '../../../core/shared_widgets/app_loader.dart';
 import '../../../routes/app_routes.dart';
-import '../domain/entities/transaction_type.dart';
+import '../../../core/enums/transaction_type.dart';
 import '../domain/entities/transfer_entity.dart';
 import 'local_widgets/account_selector_field.dart';
 import 'local_widgets/account_picker_dialog.dart';
