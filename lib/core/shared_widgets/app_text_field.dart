@@ -13,6 +13,7 @@ class AppTextField extends StatelessWidget {
     this.keyboardType,
     this.onChanged,
     this.onToggleObscure,
+    this.suffixIcon,
   });
 
   final TextEditingController? controller;
@@ -24,6 +25,7 @@ class AppTextField extends StatelessWidget {
   final TextInputType? keyboardType;
   final ValueChanged<String>? onChanged;
   final VoidCallback? onToggleObscure;
+  final IconData? suffixIcon;
 
   @override
   Widget build(BuildContext context) {
@@ -73,6 +75,8 @@ class AppTextField extends StatelessWidget {
                       ),
                       onPressed: onToggleObscure,
                     )
+                  : suffixIcon != null
+                  ? Icon(suffixIcon, size: 18, color: AppColors.neutral300)
                   : null,
             ),
           ),

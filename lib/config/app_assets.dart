@@ -19,6 +19,12 @@ class AppImages {
   static const String searchExchangeIllustration = '${_base}exchange.svg';
   static const String transferSuccessIllustration =
       '${_base}transfer_success.svg';
+  static const String payBillElectric = '${_base}electric_bill.svg';
+  static const String payBillWater = '${_base}water_bill.svg';
+  static const String payBillMobile = '${_base}mobile_bill.svg';
+  static const String payBillInternet = '${_base}internet_bill.svg';
+  static const String payBillSuccessIllustration =
+      '${_base}pay_bill_success.svg';
 }
 
 class AppIcons {

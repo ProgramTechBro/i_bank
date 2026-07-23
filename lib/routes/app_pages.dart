@@ -10,6 +10,13 @@ import '../features/branch_locator/presentation/interest_rate_screen.dart';
 import '../features/branch_locator/presentation/search_screen.dart';
 import '../features/exchange/presentation/exchange_screen.dart';
 import '../features/home/presentation/home_screen.dart';
+import '../features/pay_bill/domain/entities/payment_history_entry_entity.dart';
+import '../features/pay_bill/presentation/bill_check_screen.dart';
+import '../features/pay_bill/presentation/bill_pay_screen.dart';
+import '../features/pay_bill/presentation/bill_payment_success_screen.dart';
+import '../features/pay_bill/presentation/bill_receipt_screen.dart';
+import '../features/pay_bill/presentation/pay_bill_screen.dart';
+import '../features/pay_bill/presentation/payment_history_screen.dart';
 import '../features/settings/presentation/language_screen.dart';
 import '../features/splash/presentation/splash_screen.dart';
 import '../features/transfer/domain/entities/transfer_entity.dart';
@@ -20,6 +27,7 @@ import '../features/transfer/presentation/transfer_screen.dart';
 import '../features/transfer/presentation/transfer_success_screen.dart';
 import '../features/withdraw/presentation/withdraw_screen.dart';
 import '../features/withdraw/presentation/withdraw_success_screen.dart';
+import '../core/enums/bill_category.dart';
 import 'app_routes.dart';
 
 class AppPages {
@@ -100,6 +108,47 @@ class AppPages {
       GoRoute(
         path: AppRoutes.withdrawSuccess,
         builder: (context, state) => const WithdrawSuccessScreen(),
+      ),
+      GoRoute(
+        path: AppRoutes.payBill,
+        builder: (context, state) => const PayBillScreen(),
+      ),
+      GoRoute(
+        path: AppRoutes.paymentHistory,
+        builder: (context, state) => PaymentHistoryScreen(
+          initialCategory: state.extra! as BillCategory,
+        ),
+      ),
+      GoRoute(
+        path: AppRoutes.billReceipt,
+        builder: (context, state) {
+          final extra = state.extra! as Map<String, dynamic>;
+          return BillReceiptScreen(
+            category: extra['category'] as BillCategory,
+            entry: extra['entry'] as PaymentHistoryEntryEntity,
+          );
+        },
+      ),
+      GoRoute(
+        path: AppRoutes.billCheck,
+        builder: (context, state) =>
+            BillCheckScreen(category: state.extra! as BillCategory),
+      ),
+      GoRoute(
+        path: AppRoutes.billPay,
+        builder: (context, state) {
+          final extra = state.extra! as Map<String, dynamic>;
+          return BillPayScreen(
+            category: extra['category'] as BillCategory,
+            companyName: extra['companyName'] as String,
+            billCode: extra['billCode'] as String,
+          );
+        },
+      ),
+      GoRoute(
+        path: AppRoutes.billPaymentSuccess,
+        builder: (context, state) =>
+            BillPaymentSuccessScreen(category: state.extra! as BillCategory),
       ),
       GoRoute(
         path: AppRoutes.signIn,
