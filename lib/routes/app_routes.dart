@@ -44,8 +44,12 @@ class AppRoutes {
   static const String forgotPassword = '/forgot-password';
   static const String changePassword = '/change-password';
   static const String changePasswordSuccess = '/change-password/success';
+  static const String message = '/message';
+  static const String messageThread = '/message/thread';
+  static const String settings = '/settings';
+  static const String appInformation = '/settings/app-information';
 
-  static const List<String> _tabRoutes = [home, search];
+  static const List<String> _tabRoutes = [home, search, message, settings];
 
   static void goToTab(BuildContext context, int index) {
     if (index >= _tabRoutes.length) return;
