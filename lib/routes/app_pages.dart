@@ -7,6 +7,9 @@ import '../features/auth/presentation/sign_up_screen.dart';
 import '../features/branch_locator/presentation/branch_screen.dart';
 import '../features/branch_locator/presentation/exchange_rate_screen.dart';
 import '../features/branch_locator/presentation/interest_rate_screen.dart';
+import '../features/credit_card/presentation/credit_card_pay_screen.dart';
+import '../features/credit_card/presentation/credit_card_screen.dart';
+import '../features/credit_card/presentation/credit_card_success_screen.dart';
 import '../features/beneficiary/domain/entities/beneficiary_entity.dart';
 import '../features/beneficiary/presentation/add_beneficiary_screen.dart';
 import '../features/beneficiary/presentation/beneficiary_detail_screen.dart';
@@ -214,6 +217,18 @@ class AppPages {
         builder: (context, state) => BeneficiaryDetailScreen(
           beneficiary: state.extra! as BeneficiaryEntity,
         ),
+      ),
+      GoRoute(
+        path: AppRoutes.creditCard,
+        builder: (context, state) => const CreditCardScreen(),
+      ),
+      GoRoute(
+        path: AppRoutes.creditCardPay,
+        builder: (context, state) => const CreditCardPayScreen(),
+      ),
+      GoRoute(
+        path: AppRoutes.creditCardSuccess,
+        builder: (context, state) => const CreditCardSuccessScreen(),
       ),
       GoRoute(
         path: AppRoutes.signIn,

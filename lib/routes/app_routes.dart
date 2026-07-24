@@ -36,6 +36,9 @@ class AppRoutes {
   static const String beneficiaryAdd = '/beneficiary/add';
   static const String beneficiaryDetail = '/beneficiary/detail';
   static const String saveOnlineSuccess = '/save-online/success';
+  static const String creditCard = '/credit-card';
+  static const String creditCardPay = '/credit-card/pay';
+  static const String creditCardSuccess = '/credit-card/success';
   static const String signIn = '/sign-in';
   static const String signUp = '/sign-up';
   static const String forgotPassword = '/forgot-password';

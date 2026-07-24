@@ -43,6 +43,7 @@ class HomeQuickActionsGrid extends StatelessWidget {
     HomeQuickAction(
       iconAsset: AppIcons.categoryCreditCard,
       label: 'Credit card',
+      route: AppRoutes.creditCard,
     ),
     HomeQuickAction(
       iconAsset: AppIcons.categoryTransactionReport,

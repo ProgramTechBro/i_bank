@@ -26,6 +26,8 @@ class AppImages {
   static const String payBillSuccessIllustration =
       '${_base}pay_bill_success.svg';
   static const String saveOnlineIllustration = '${_base}save_main.svg';
+  static const String creditCardSuccessIllustration =
+      '${_base}credit_card_success.svg';
 }
 
 class AppIcons {
