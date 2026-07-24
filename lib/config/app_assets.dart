@@ -60,6 +60,11 @@ class AppIcons {
   static const String saveOnlineAdd = '${_base}save_add.svg';
   static const String saveOnlineManagement =
       '${_base}save_management.svg';
+  static const String messageBankOfAmerica = '${_base}BOA.svg';
+  static const String messageAccount = '${_base}account.svg';
+  static const String messageAlert = '${_base}alert.svg';
+  static const String messagePaypal = '${_base}paypal.svg';
+  static const String messageWithdraw = '${_base}withdraw_msg.svg';
 }
 
 class AppNetworkImages {
