@@ -10,17 +10,14 @@ import '../features/branch_locator/presentation/interest_rate_screen.dart';
 import '../features/credit_card/presentation/credit_card_pay_screen.dart';
 import '../features/credit_card/presentation/credit_card_screen.dart';
 import '../features/credit_card/presentation/credit_card_success_screen.dart';
-import '../features/message/presentation/message_screen.dart';
 import '../features/message/presentation/message_thread_screen.dart';
 import '../features/settings/presentation/app_information_screen.dart';
-import '../features/settings/presentation/settings_screen.dart';
 import '../features/beneficiary/domain/entities/beneficiary_entity.dart';
 import '../features/beneficiary/presentation/add_beneficiary_screen.dart';
 import '../features/beneficiary/presentation/beneficiary_detail_screen.dart';
 import '../features/beneficiary/presentation/beneficiary_screen.dart';
-import '../features/branch_locator/presentation/search_screen.dart';
 import '../features/exchange/presentation/exchange_screen.dart';
-import '../features/home/presentation/home_screen.dart';
+import '../features/main/presentation/main_screen.dart';
 import '../features/mobile_prepaid/domain/entities/prepaid_recharge_entity.dart';
 import '../features/mobile_prepaid/presentation/mobile_prepaid_confirm_screen.dart';
 import '../features/mobile_prepaid/presentation/mobile_prepaid_screen.dart';
@@ -62,11 +59,7 @@ class AppPages {
       ),
       GoRoute(
         path: AppRoutes.home,
-        builder: (context, state) => const HomeScreen(),
-      ),
-      GoRoute(
-        path: AppRoutes.search,
-        builder: (context, state) => const SearchScreen(),
+        builder: (context, state) => const MainScreen(),
       ),
       GoRoute(
         path: AppRoutes.branch,
@@ -235,16 +228,8 @@ class AppPages {
         builder: (context, state) => const CreditCardSuccessScreen(),
       ),
       GoRoute(
-        path: AppRoutes.message,
-        builder: (context, state) => const MessageScreen(),
-      ),
-      GoRoute(
         path: AppRoutes.messageThread,
         builder: (context, state) => const MessageThreadScreen(),
-      ),
-      GoRoute(
-        path: AppRoutes.settings,
-        builder: (context, state) => const SettingsScreen(),
       ),
       GoRoute(
         path: AppRoutes.appInformation,

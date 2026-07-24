@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../config/app_colors.dart';
-import '../../../core/providers/bottom_nav_provider.dart';
 import '../../../core/shared_widgets/app_bank_card.dart';
-import '../../../core/shared_widgets/app_bottom_nav_bar.dart';
 import '../../../core/shared_widgets/app_error_view.dart';
 import '../../../core/shared_widgets/app_loader.dart';
-import '../../../routes/app_routes.dart';
 import '../domain/entities/home_dashboard_entity.dart';
 import 'local_widgets/home_header.dart';
 import 'local_widgets/home_quick_actions_grid.dart';
@@ -18,7 +15,6 @@ class HomeScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final dashboardAsync = ref.watch(homeDashboardProvider);
-    final selectedNavIndex = ref.watch(bottomNavIndexProvider);
 
     return Scaffold(
       backgroundColor: AppColors.primary,
@@ -29,13 +25,6 @@ class HomeScreen extends ConsumerWidget {
           message: 'Something went wrong. Please try again.',
           onRetry: () => ref.invalidate(homeDashboardProvider),
         ),
-      ),
-      bottomNavigationBar: AppBottomNavBar(
-        selectedIndex: selectedNavIndex,
-        onTap: (index) {
-          ref.read(bottomNavIndexProvider.notifier).select(index);
-          AppRoutes.goToTab(context, index);
-        },
       ),
     );
   }
